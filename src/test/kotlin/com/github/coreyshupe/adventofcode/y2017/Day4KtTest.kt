@@ -15,5 +15,10 @@ class Day4KtTest {
 
     @Test
     fun checkIgnoreLocationPassphraseTest() {
+        assertEquals(true, checkPassphrase("abcde fghij", true))
+        assertEquals(false, checkPassphrase("abcde xyz ecdab", true))
+        assertEquals(true, checkPassphrase("a ab abc abd abf abj", true))
+        assertEquals(true, checkPassphrase("iiii oiii ooii oooi oooo", true))
+        assertEquals(false, checkPassphrase("oiii ioii iioi iiio", true))
     }
 }
