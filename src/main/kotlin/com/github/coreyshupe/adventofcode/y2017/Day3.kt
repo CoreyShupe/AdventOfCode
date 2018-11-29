@@ -24,30 +24,18 @@ sealed class Direction(private val func: (x: Int, y: Int) -> Pair<Int, Int>) {
 
 object Up : Direction({ x, y -> Pair(x, y + 1) }) {
     override val next: Direction get() = Left
-    override fun toString(): String {
-        return "UP"
-    }
 }
 
 object Down : Direction({ x, y -> Pair(x, y - 1) }) {
     override val next: Direction get() = Right
-    override fun toString(): String {
-        return "DOWN"
-    }
 }
 
 object Left : Direction({ x, y -> Pair(x - 1, y) }) {
     override val next: Direction get() = Down
-    override fun toString(): String {
-        return "LEFT"
-    }
 }
 
 object Right : Direction({ x, y -> Pair(x + 1, y) }) {
     override val next: Direction get() = Up
-    override fun toString(): String {
-        return "RIGHT"
-    }
 }
 
 fun findValueWrit(target: Int): Int {

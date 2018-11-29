@@ -37,11 +37,7 @@ fun watchTowerWeight(towerInputs: String): Any {
         weightArray[0] = weightArray[1]
         weightArray[1] = next
     }
-    val watchedWeight = weightArray[1]!!
-    val originalWeight = watchedWeight.originalWeight
-    val totalRest = watchedWeight.weights?.sumBy { it.weight } ?: 0
-    val needed = weightArray[0]!!.weights!!.findMajor()
-    return ((needed.weight - totalRest) - originalWeight) + originalWeight
+    return weightArray[0]!!.weights!!.findMajor().weight - (weightArray[1]!!.weights?.sumBy { it.weight } ?: 0)
 }
 
 fun mapCalculatedWeights(tower: Tower): Weights {
@@ -69,10 +65,7 @@ fun findTop(list: List<Pair<String, Pair<Int, List<String>?>>>): String {
 fun generateTower(name: String, map: Map<String, Pair<Int, List<String>?>>): Tower {
     if (!map.containsKey(name)) throw IllegalArgumentException("Could not find tower base $name.")
     val info = map[name]!!
-    if (info.second == null) {
-        return Tower(name, info.first, null)
-    }
-    return Tower(name, info.first, generateTowers(info.second!!, map))
+    return Tower(name, info.first, info.second?.let { generateTowers(it, map) })
 }
 
 fun generateTowers(groups: List<String>, map: Map<String, Pair<Int, List<String>?>>) =
