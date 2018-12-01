@@ -9,14 +9,13 @@ fun knotHash(input: String): String {
         val i = x * 16
         dense.add(sparse.subList(i, i + 16).reduce { z, y -> z xor y })
     }
-    fun Int.hex() = java.lang.Integer.toHexString(this)!!
     return dense.joinToString {
-        val hex = it.hex()
+        val hex = it.toString(16)
         if (hex.length < 2) "0$hex" else hex
     }.replace(", ", "")
 }
 
-fun knotHashRounds(
+tailrec fun knotHashRounds(
     lengths: List<Int>,
     position: Int = 0,
     skip: Int = 0,
