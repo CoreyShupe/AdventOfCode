@@ -11,10 +11,10 @@ fun main(args: Array<String>) {
 
 fun countTwosAndThrees(input: List<String>): Int {
     val range = 1..2
-    val arr = arrayOf(1, 0, 0)
+    val arr = arrayOf(0, 0)
     input.forEach { str ->
         val map = str.groupingBy { it }.eachCount()
-        range.forEach { x -> if (map.filter { it.value == x + 1 }.isNotEmpty()) arr[x]++ }
+        range.forEach { x -> if (map.filter { it.value == x + 1 }.isNotEmpty()) arr[x - 1]++ }
     }
     return arr.reduce { x, y -> x * y }
 }
