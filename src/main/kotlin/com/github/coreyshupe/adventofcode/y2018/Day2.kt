@@ -16,7 +16,7 @@ fun countTwosAndThrees(input: List<String>): Int {
         val map = str.groupingBy { it }.eachCount()
         range.forEach { x -> if (map.filter { it.value == x + 1 }.isNotEmpty()) arr[x - 1]++ }
     }
-    return arr.reduce { x, y -> x * y }
+    return arr[0] * arr[1]
 }
 
 fun findMostCommonString(input: List<String>): String {
