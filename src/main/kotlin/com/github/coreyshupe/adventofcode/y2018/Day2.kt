@@ -6,6 +6,7 @@ fun main(args: Array<String>) {
     "/2018/day2_input.txt".asLinedResource {
         println(countTwosAndThrees(it))
         println(findMostCommonString(it))
+        println(findMostCommonStringRemoval(it))
     }
 }
 
@@ -30,6 +31,14 @@ fun findMostCommonString(input: List<String>): String {
             val diff = first.difference(second)
             if (diff != -1) return second.removeRange(diff..diff)
         }
+    }
+    throw IllegalArgumentException("Illegal list of strings.")
+}
+
+fun findMostCommonStringRemoval(input: List<String>): String {
+    0.until(input[0].length).forEach { x ->
+        val set = mutableSetOf<String>()
+        input.map { it.removeRange(x..x) }.find { !set.add(it) }?.apply { return this }
     }
     throw IllegalArgumentException("Illegal list of strings.")
 }

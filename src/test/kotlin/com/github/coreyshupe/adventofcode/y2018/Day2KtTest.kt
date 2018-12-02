@@ -22,11 +22,7 @@ class Day2KtTest {
         )
     }
 
-    @Test
-    fun findMostCommonStringTest() {
-        assertEquals(
-            "fgij", findMostCommonString(
-                """
+    private val commonStringInput = """
 abcde
 fghij
 klmno
@@ -34,8 +30,15 @@ pqrst
 fguij
 axcye
 wvxyz
-        """.trimIndent().split('\n')
-            )
-        )
+    """.trimIndent().split('\n')
+
+    @Test
+    fun findMostCommonStringTest() {
+        assertEquals("fgij", findMostCommonString(commonStringInput))
+    }
+
+    @Test
+    fun findMostCommonStringRemovalTest() {
+        assertEquals("fgij", findMostCommonStringRemoval(commonStringInput))
     }
 }
