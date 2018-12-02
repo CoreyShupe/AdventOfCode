@@ -37,33 +37,26 @@ fun findRepeatingFrequency(input: List<String>): Int {
     }
 
     // These will be used later to find the best result
-    var minimumIndex: Int? = null
-    var minimumDifference: Int? = null
-    var minimumFrequency: Int? = null
-    map.values.forEach { list ->
+    fun Triple<Int, Int, Int>.compareTo(that: Triple<Int, Int, Int>) =
+        if (this.first == that.first) this.second - that.second else this.first - that.first
+
+    fun Triple<Int, Int, Int>.betterThan(that: Triple<Int, Int, Int>?) =
+        that == null || this.first < that.first || (this.first == that.first && this.second < that.second)
+
+    var minInfo: Triple<Int, Int, Int>? = null
+    map.values.filter { it.size > 1 }.forEach { list ->
         // Pairs in these have first(index) second(frequency)
         // So we sort by the frequency
         val sortedList = list.sortedBy { it.second }
-        sortedList.forEachIndexed { i, pair ->
-            if (i != 0) { // skip first, we can't compare that stuff
-                val previous = sortedList[i - 1]
-                val difference = pair.second - previous.second
-                val index = if (shift > 0) previous.first else pair.first
-                val frequency = if (shift > 0) pair.second else previous.second
-
-                // check if there is a minimum difference
-                // check if the minimum difference between groups is good enough
-                // check if the difference == but index is better
-                if (minimumDifference == null || difference < minimumDifference!! ||
-                    (difference == minimumDifference && index < minimumIndex!!)
-                ) {
-                    // set all mins
-                    minimumDifference = difference
-                    minimumFrequency = frequency
-                    minimumIndex = index
-                }
-            }
-        }
+        val min = sortedList.drop(1).mapIndexed { i, pair ->
+            val previous = sortedList[i]
+            Triple(
+                pair.second - previous.second,
+                if (shift > 0) previous.first else pair.first,
+                if (shift > 0) pair.second else previous.second
+            )
+        }.minWith(Comparator(Triple<Int, Int, Int>::compareTo))!!
+        if (min.betterThan(minInfo)) minInfo = min
     }
-    return minimumFrequency ?: shift+1 // special case where no groups have more than 1 member defaults to shift + 1
+    return minInfo?.third ?: shift+1 // special case where no groups have more than 1 member defaults to shift + 1
 }
