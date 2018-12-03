@@ -1,8 +1,16 @@
 package com.github.coreyshupe.adventofcode
 
-fun String.asResource(applier: (String) -> Unit) =
-    applier.invoke(this::class.java.getResource(this).readText().replace("\r", ""))
+enum class ResourceType {
+    FULL,
+    LINED,
+    COMMA_SPLIT
+}
 
-fun String.asLinedResource(applier: (List<String>) -> Unit) = this.asResource {
-    applier.invoke(it.split('\n'))
+fun String.asResource(type: ResourceType, applier: (Any) -> Unit) {
+    val text = this::class.java.getResource(this).readText().replace("\r", "")
+    when (type) {
+        ResourceType.FULL -> applier(text)
+        ResourceType.LINED -> applier(text.split('\n'))
+        ResourceType.COMMA_SPLIT -> applier(text.split(','))
+    }
 }
