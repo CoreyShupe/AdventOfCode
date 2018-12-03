@@ -22,15 +22,15 @@ class Day2KtTest {
         )
     }
 
-    private val commonStringInput = """
-abcde
-fghij
-klmno
-pqrst
-fguij
-axcye
-wvxyz
-    """.trimIndent().split('\n')
+    private val commonStringInput = listOf(
+        "abcde",
+        "fghij",
+        "klmno",
+        "pqrst",
+        "fguij",
+        "axcye",
+        "wvxyz"
+    )
 
     @Test
     fun findMostCommonStringTest() {
