@@ -1,16 +1,17 @@
 package com.github.coreyshupe.adventofcode
 
-enum class ResourceType {
-    FULL,
-    LINED,
-    COMMA_SPLIT
+sealed class ResourceType<T> {
+    object Full : ResourceType<String>()
+    object Lined : ResourceType<List<String>>()
+    object CommaSplit : ResourceType<List<String>>()
 }
 
-fun String.asResource(type: ResourceType, applier: (Any) -> Unit) {
+@Suppress("UNCHECKED_CAST")
+fun <T> String.asResource(type: ResourceType<T>, applier: (T) -> Unit) {
     val text = this::class.java.getResource(this).readText().replace("\r", "")
     when (type) {
-        ResourceType.FULL -> applier(text)
-        ResourceType.LINED -> applier(text.split('\n'))
-        ResourceType.COMMA_SPLIT -> applier(text.split(','))
+        ResourceType.Full -> applier(text as T)
+        ResourceType.Lined -> applier(text.split('\n') as T)
+        ResourceType.CommaSplit -> applier(text.split(',') as T)
     }
 }

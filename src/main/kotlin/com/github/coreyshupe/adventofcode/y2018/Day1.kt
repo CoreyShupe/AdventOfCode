@@ -1,9 +1,11 @@
 package com.github.coreyshupe.adventofcode.y2018
 
-import com.github.coreyshupe.adventofcode.asLinedResource
+import com.github.coreyshupe.adventofcode.ResourceType
+import com.github.coreyshupe.adventofcode.asResource
+import com.github.coreyshupe.adventofcode.group
 
 fun main(args: Array<String>) {
-    "/2018/day1_input.txt".asLinedResource {
+    "/2018/day1_input.txt".asResource(ResourceType.Lined) {
         println(applyFrequencies(it))
         println(findRepeatingFrequency(it))
     }
@@ -29,12 +31,7 @@ fun findRepeatingFrequency(input: List<String>): Int {
     if (shift == 0) return 0
 
     // populate a map of the groups (value % shift) will be the key for groups
-    val map = mutableMapOf<Int, MutableList<Pair<Int, Int>>>()
-    sums.dropLast(1).forEachIndexed { index, i ->
-        val mod = i % shift
-        if (!map.containsKey(mod)) map[mod] = mutableListOf()
-        map[mod]!!.add(Pair(index, i))
-    }
+    val map = sums.dropLast(1).mapIndexed { i, j -> i to j }.group { it.second % shift }
 
     // These will be used later to find the best result
     fun Triple<Int, Int, Int>.compareTo(that: Triple<Int, Int, Int>) =

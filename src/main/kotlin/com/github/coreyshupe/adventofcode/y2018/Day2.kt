@@ -1,9 +1,11 @@
 package com.github.coreyshupe.adventofcode.y2018
 
-import com.github.coreyshupe.adventofcode.asLinedResource
+import com.github.coreyshupe.adventofcode.ResourceType
+import com.github.coreyshupe.adventofcode.asResource
+import com.github.coreyshupe.adventofcode.findRepeated
 
 fun main(args: Array<String>) {
-    "/2018/day2_input.txt".asLinedResource {
+    "/2018/day2_input.txt".asResource(ResourceType.Lined) {
         println(countTwosAndThrees(it))
         println(findMostCommonString(it))
         println(findMostCommonStringRemoval(it))
@@ -37,8 +39,7 @@ fun findMostCommonString(input: List<String>): String {
 
 fun findMostCommonStringRemoval(input: List<String>): String {
     0.until(input[0].length).forEach { x ->
-        val set = mutableSetOf<String>()
-        input.map { it.removeRange(x..x) }.find { !set.add(it) }?.apply { return this }
+        input.map { it.removeRange(x..x) }.findRepeated()?.apply { return this }
     }
     throw IllegalArgumentException("Illegal list of strings.")
 }
