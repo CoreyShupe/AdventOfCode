@@ -10,9 +10,9 @@ fun main(args: Array<String>) {
     }
 }
 
-data class Claim(val id: Int, val point: Pair<Int, Int>, val dims: Pair<Int, Int>)
+private data class Claim(val id: Int, val point: Pair<Int, Int>, val dims: Pair<Int, Int>)
 
-fun loadClaim(input: String): Claim {
+private fun loadClaim(input: String): Claim {
     val splits = input.split(' ')
     val id = splits[0].drop(1).toInt()
     val pointSplit = splits[2].dropLast(1).split(',')
@@ -45,7 +45,7 @@ fun findLoneStrand(input: List<String>): Int {
     return set.first()
 }
 
-fun runThroughPoints(list: List<Claim>, mapper: (Int, Pair<Int, Int>, MutableMap<Pair<Int, Int>, Int>) -> Boolean):
+private fun runThroughPoints(list: List<Claim>, mapper: (Int, Pair<Int, Int>, MutableMap<Pair<Int, Int>, Int>) -> Boolean):
         Map<Pair<Int, Int>, Int> {
     val map = mutableMapOf<Pair<Int, Int>, Int>()
     list.forEach {
