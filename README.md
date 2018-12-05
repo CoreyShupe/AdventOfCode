@@ -12,6 +12,10 @@ Each solution will also have a main function so the class can be run as is, prin
 Each solution will be placed in `src/main/kotlin/com/github/coreyshupe/adventofcode/y{year}/Day{day}.kt`<br/>
 The test will be in the corresponding location to the source.<br/>
 The input will be placed in `src/main/resources/{year}/day{day}_input.txt` (may remove .txt ext later)
+## 2015 Solutions
+|Day|Title|
+|:---|---:|
+|Day 1|[Not Quite Lisp](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2015/Day1.kt)|
 ## 2018 Solutions
 |Day|Title|
 |:---|---:|
