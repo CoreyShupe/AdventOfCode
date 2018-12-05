@@ -16,6 +16,7 @@ The input will be placed in `src/main/resources/{year}/day{day}_input.txt` (may 
 |Day|Title|
 |:---|---:|
 |Day 1|[Not Quite Lisp](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2015/Day1.kt)|
+|Day 2|[I Was Told There Would Be No Math](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2015/Day2.kt)|
 ## 2018 Solutions
 |Day|Title|
 |:---|---:|
