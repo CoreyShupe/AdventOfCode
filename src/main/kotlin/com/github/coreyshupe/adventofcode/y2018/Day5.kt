@@ -10,12 +10,19 @@ fun main(args: Array<String>) {
     }
 }
 
-fun countFromReducedPolymer(input: String) = reactPolymersStack(input).length
+fun countFromReducedPolymer(input: String) = reactPolymersStack(input).size
 
 fun countFromBetterReducedPolymer(input: String) =
-    reactPolymersStack(input).let { "abcdefghijklmnopqrstuvwxyz".map { c -> reactPolymersStack(it, c).length }.min()!! }
+    reactPolymersStack(input).toString().let {
+        "abcdefghijklmnopqrstuvwxyz".map { c ->
+            reactPolymersStack(
+                it,
+                c
+            ).size
+        }.min()!!
+    }
 
-private fun reactPolymersStack(input: String, ignore: Char = ' '): String {
+private fun reactPolymersStack(input: String, ignore: Char = ' '): Stack {
     val ignore2 = changeCase(ignore)
     val stack = Stack()
     for (x in input) {
@@ -23,21 +30,24 @@ private fun reactPolymersStack(input: String, ignore: Char = ' '): String {
         else if (!stack.isEmpty() && stack.peek()!! == changeCase(x)) stack.pop()
         else stack.push(x)
     }
-    return stack.toString()
+    return stack
 }
 
 private class Stack {
     private var currentNode: Node? = null
+    var size = 0
 
     fun peek() = currentNode?.c
     fun isEmpty() = currentNode == null
     fun pop() {
         if (currentNode == null) throw IllegalStateException("Cannot pop empty stack.")
         currentNode = currentNode!!.node
+        size--
     }
 
     fun push(element: Char) {
         currentNode = Node(element, currentNode)
+        size++
     }
 
     override fun toString(): String {
