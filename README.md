@@ -1,7 +1,17 @@
 # AdventOfCode ![Travis Build](https://travis-ci.org/CoreyShupe/AdventOfCode.svg?branch=master)
 Advent of Code solutions in Kotlin.<br/>
 All solutions starting from 2015 are on the TODO list.<br/>
-This repository may be loaded with other languages, once 2018 has finished.<br/>
+## The Plan
+Each day's solution will have 4 things.
+* A working code solution
+* The input for me for that day
+* A test suite for TDD (test-driven development)
+* A place in the README to link to the solution
+
+Each solution will also have a main function so the class can be run as is, printing the solution from the input.<br/>
+Each solution will be placed in `src/main/kotlin/com/github/coreyshupe/adventofcode/y{year}/Day{day}.kt`<br/>
+The test will be in the corresponding location to the source.<br/>
+The input will be placed in `src/main/resources/{year}/day{day}_input.txt` (may remove .txt ext later)
 ## 2018 Solutions
 |Day|Title|
 |:---|---:|
