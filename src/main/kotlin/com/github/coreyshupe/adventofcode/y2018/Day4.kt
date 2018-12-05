@@ -25,8 +25,7 @@ private fun getGuards(input: List<String>): List<Guard> {
     var currentGuard = Guard(-1)
     var lastTimeAsleep = -1
     input.sorted().forEach {
-        val action = it[19]
-        when (action) {
+        when (it[19]) {
             'w' -> for (x in lastTimeAsleep.until("${it[15]}${it[16]}".toInt())) {
                 currentGuard.times[x] = currentGuard.times.getOrDefault(x, 0) + 1
             }
@@ -36,10 +35,9 @@ private fun getGuards(input: List<String>): List<Guard> {
                 if (!guards.containsKey(id)) {
                     guards[id] = Guard(id)
                 }
-
                 currentGuard = guards[id]!!
             }
-            else -> throw IllegalArgumentException("Illegal action $action")
+            else -> throw IllegalArgumentException("Illegal action $it")
         }
     }
     return guards.values.toList()
