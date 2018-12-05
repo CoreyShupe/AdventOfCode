@@ -9,3 +9,4 @@ This repository may be loaded with other languages, once 2018 has finished.<br/>
 |Day 2|[Inventory Management System](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day2.kt)|
 |Day 3|[No Matter How You Slice It](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day3.kt)|
 |Day 4|[Repose Record](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day4.kt)|
+|Day 5|[Alchemical Reduction](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day5.kt)|
