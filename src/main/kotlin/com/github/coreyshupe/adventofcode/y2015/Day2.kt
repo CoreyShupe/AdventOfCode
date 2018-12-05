@@ -31,4 +31,4 @@ private fun calculateRibbon(input: String): Int {
     return min(s1, min(s2, s3)) + (dimensions[0] * dimensions[1] * dimensions[2])
 }
 
-private fun parseDims(input: String) = input.split('x').map { it.toInt() }.toTypedArray()
+private fun parseDims(input: String) = input.split('x').map { it.toInt() }
