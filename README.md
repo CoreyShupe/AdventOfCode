@@ -18,6 +18,7 @@ The input will be placed in `src/main/resources/{year}/day{day}_input.txt` (may 
 |Day 1|[Not Quite Lisp](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2015/Day1.kt)|
 |Day 2|[I Was Told There Would Be No Math](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2015/Day2.kt)|
 |Day 3|[Perfectly Spherical Houses in a Vacuum](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2015/Day3.kt)|
+|Day 4|[The Ideal Stocking Stuffer](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2015/Day4.kt)|
 ## [2018 Solutions](https://adventofcode.com/2018)
 |Day|Title|
 |:---|---:|
