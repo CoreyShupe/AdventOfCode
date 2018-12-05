@@ -19,6 +19,7 @@ The input will be placed in `src/main/resources/{year}/day{day}_input.txt` (may 
 |Day 2|[I Was Told There Would Be No Math](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2015/Day2.kt)|
 |Day 3|[Perfectly Spherical Houses in a Vacuum](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2015/Day3.kt)|
 |Day 4|[The Ideal Stocking Stuffer](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2015/Day4.kt)|
+|Day 5|[Doesn't He Have Intern-Elves For This?](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2015/Day5.kt)|
 ## [2018 Solutions](https://adventofcode.com/2018)
 |Day|Title|
 |:---|---:|
