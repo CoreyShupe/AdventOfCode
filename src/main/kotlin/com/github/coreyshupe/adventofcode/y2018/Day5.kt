@@ -2,6 +2,7 @@ package com.github.coreyshupe.adventofcode.y2018
 
 import com.github.coreyshupe.adventofcode.ResourceType
 import com.github.coreyshupe.adventofcode.asResource
+import java.lang.StringBuilder
 
 fun main(args: Array<String>) {
     "/2018/day5_input.txt".asResource(ResourceType.Full) {
@@ -14,7 +15,7 @@ fun countFromReducedPolymer(input: String) = reactPolymersStack(input).size
 
 fun countFromBetterReducedPolymer(input: String) =
     reactPolymersStack(input).toString().let {
-        "abcdefghijklmnopqrstuvwxyz".map { c ->
+        ('a'..'z').map { c ->
             reactPolymersStack(
                 it,
                 c
@@ -23,25 +24,24 @@ fun countFromBetterReducedPolymer(input: String) =
     }
 
 private fun reactPolymersStack(input: String, ignore: Char = ' '): Stack {
-    val ignore2 = changeCase(ignore)
+    val ignore2 = ignore.changeCase()
     val stack = Stack()
     for (x in input) {
         if (x == ignore || x == ignore2) continue
-        else if (!stack.isEmpty() && stack.peek()!! == changeCase(x)) stack.pop()
+        else if (!stack.isEmpty && stack.currentNode!!.c == x.changeCase()) stack.pop()
         else stack.push(x)
     }
     return stack
 }
 
 private class Stack {
-    private var currentNode: Node? = null
+    var currentNode: Node? = null
     var size = 0
+    val isEmpty get() = currentNode == null
 
-    fun peek() = currentNode?.c
-    fun isEmpty() = currentNode == null
     fun pop() {
-        if (currentNode == null) throw IllegalStateException("Cannot pop empty stack.")
-        currentNode = currentNode!!.node
+        if (isEmpty) throw IllegalStateException("Cannot pop empty stack.")
+        currentNode = currentNode?.node
         size--
     }
 
@@ -52,10 +52,10 @@ private class Stack {
 
     override fun toString(): String {
         val builder = StringBuilder()
-        var lastNode = currentNode
-        while (lastNode != null) {
-            builder.append(lastNode.c)
-            lastNode = lastNode.node
+        var x = currentNode
+        while (x != null) {
+            builder.append(x.c)
+            x = x.node
         }
         return builder.toString()
     }
@@ -63,4 +63,4 @@ private class Stack {
 
 private data class Node(val c: Char, val node: Node?)
 
-private fun changeCase(c: Char) = if (c.isUpperCase()) Character.toLowerCase(c) else Character.toUpperCase(c)
+private fun Char.changeCase() = if (isUpperCase()) toLowerCase() else toUpperCase()
