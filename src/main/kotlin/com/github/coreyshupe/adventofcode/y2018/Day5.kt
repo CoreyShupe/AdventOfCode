@@ -12,17 +12,15 @@ fun main(args: Array<String>) {
 
 fun countFromReducedPolymer(input: String) = reactPolymersStack(input).length
 
-fun countFromBetterReducedPolymer(input: String): Int {
-    val n = reactPolymersStack(input)
-    return "abcdefghijklmnopqrstuvwxyz".map {
-        reactPolymersStack(n.replace("$it", "", true)).length
-    }.min()!!
-}
+fun countFromBetterReducedPolymer(input: String) =
+    reactPolymersStack(input).let { "abcdefghijklmnopqrstuvwxyz".map { c -> reactPolymersStack(it, c).length }.min()!! }
 
-private fun reactPolymersStack(input: String): String {
+private fun reactPolymersStack(input: String, ignore: Char = ' '): String {
+    val ignore2 = changeCase(ignore)
     val stack = Stack()
     for (x in input) {
-        if (!stack.isEmpty() && stack.peek()!! == changeCase(x)) stack.pop()
+        if (x == ignore || x == ignore2) continue
+        else if (!stack.isEmpty() && stack.peek()!! == changeCase(x)) stack.pop()
         else stack.push(x)
     }
     return stack.toString()
