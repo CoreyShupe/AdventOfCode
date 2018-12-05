@@ -6,8 +6,8 @@ import com.github.coreyshupe.adventofcode.group
 
 fun main(args: Array<String>) {
     "/2018/day1_input.txt".asResource(ResourceType.Lined) {
-        println(applyFrequencies(it))
-        println(findRepeatingFrequency(it))
+        println(applyFrequencies(it)) // part 1
+        println(findRepeatingFrequency(it)) // part 2
     }
 }
 

@@ -5,8 +5,8 @@ import com.github.coreyshupe.adventofcode.asResource
 
 fun main(args: Array<String>) {
     "/2018/day4_input.txt".asResource(ResourceType.Lined) {
-        println(findMostSleepingGuard(it))
-        println(findMinuteHoggingGuard(it))
+        println(findMostSleepingGuard(it)) // part 1
+        println(findMinuteHoggingGuard(it)) // part 2
     }
 }
 

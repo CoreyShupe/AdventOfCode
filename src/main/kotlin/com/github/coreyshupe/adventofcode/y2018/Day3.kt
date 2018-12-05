@@ -5,8 +5,8 @@ import com.github.coreyshupe.adventofcode.asResource
 
 fun main(args: Array<String>) {
     "/2018/day3_input.txt".asResource(ResourceType.Lined) {
-        println(findOverlapping(it))
-        println(findLoneStrand(it))
+        println(findOverlapping(it)) // part 1
+        println(findLoneStrand(it)) // part 2
     }
 }
 
