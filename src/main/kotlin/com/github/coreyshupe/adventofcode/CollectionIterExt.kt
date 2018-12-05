@@ -1,5 +1,7 @@
 package com.github.coreyshupe.adventofcode
 
+fun <E> List<E>.getRealIndex(size: Int, index: Int) = index % size
+
 fun <E, K, V> Collection<E>.toMap(eToK: (E) -> K, eToV: (E) -> V) =
     this.map { eToK.invoke(it) to eToV.invoke(it) }.toMap()
 
