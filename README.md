@@ -24,6 +24,7 @@ The input will be placed in `src/main/resources/{year}/day{day}_input.txt` (may 
 |Day|Title|
 |:---|---:|
 |Day 1|[No Time for a Taxicab](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2016/Day1.kt)|
+|Day 2|[Bathroom Security](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2016/Day2.kt)|
 ## [2018 Solutions](https://adventofcode.com/2018)
 |Day|Title|
 |:---|---:|

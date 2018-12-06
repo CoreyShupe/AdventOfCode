@@ -6,8 +6,8 @@ import kotlin.math.abs
 
 fun main(args: Array<String>) {
     "/2016/day1_input.txt".asResource(ResourceType.CommaSplit) {
-        println(findDistance(it))
-        println(findLocationVisitedTwice(it))
+        println(findDistance(it)) // part 1
+        println(findLocationVisitedTwice(it)) // part 2
     }
 }
 
