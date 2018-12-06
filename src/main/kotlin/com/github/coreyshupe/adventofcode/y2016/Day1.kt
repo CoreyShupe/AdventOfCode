@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
 
 fun findDistance(input: List<String>): Int {
     var pointer = Pair(0, 0)
-    var direction: Direction = North
+    var direction: Direction = Direction.NORTH
     input.map { it.trim() }.forEach {
         val dir = it[0]
         val length = it.substring(1)
@@ -26,7 +26,7 @@ fun findDistance(input: List<String>): Int {
 fun findLocationVisitedTwice(input: List<String>): Int {
     val set = mutableSetOf<Pair<Int, Int>>()
     var pointer = Pair(0, 0)
-    var direction: Direction = North
+    var direction: Direction = Direction.NORTH
     input.map { it.trim() }.forEach {
         val dir = it[0]
         val length = it.substring(1)
@@ -39,27 +39,24 @@ fun findLocationVisitedTwice(input: List<String>): Int {
     throw IllegalArgumentException("Invalid input.")
 }
 
-private abstract class Direction {
+private enum class Direction {
+    EAST {
+        override fun apply(pointer: Pair<Int, Int>, len: Int) = Pair(pointer.first + len, pointer.second)
+        override fun move(left: Boolean) = if (left) NORTH else SOUTH
+    },
+    WEST {
+        override fun apply(pointer: Pair<Int, Int>, len: Int) = Pair(pointer.first - len, pointer.second)
+        override fun move(left: Boolean) = if (left) SOUTH else NORTH
+    },
+    NORTH {
+        override fun apply(pointer: Pair<Int, Int>, len: Int) = Pair(pointer.first, pointer.second + len)
+        override fun move(left: Boolean) = if (left) WEST else EAST
+    },
+    SOUTH {
+        override fun apply(pointer: Pair<Int, Int>, len: Int) = Pair(pointer.first, pointer.second - len)
+        override fun move(left: Boolean) = if (left) EAST else WEST
+    };
+
     abstract fun apply(pointer: Pair<Int, Int>, len: Int): Pair<Int, Int>
     abstract fun move(left: Boolean): Direction
-}
-
-private object East : Direction() {
-    override fun apply(pointer: Pair<Int, Int>, len: Int) = Pair(pointer.first + len, pointer.second)
-    override fun move(left: Boolean) = if (left) North else South
-}
-
-private object West : Direction() {
-    override fun apply(pointer: Pair<Int, Int>, len: Int) = Pair(pointer.first - len, pointer.second)
-    override fun move(left: Boolean) = if (left) South else North
-}
-
-private object North : Direction() {
-    override fun apply(pointer: Pair<Int, Int>, len: Int) = Pair(pointer.first, pointer.second + len)
-    override fun move(left: Boolean) = if (left) West else East
-}
-
-private object South : Direction() {
-    override fun apply(pointer: Pair<Int, Int>, len: Int) = Pair(pointer.first, pointer.second - len)
-    override fun move(left: Boolean) = if (left) East else West
 }
