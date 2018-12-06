@@ -15,11 +15,10 @@ fun main(args: Array<String>) {
 fun findHashWithLeadingZeroes(input: String, repeat: Int): Int {
     var x = 1
     while (true) {
-        if ("$input$x".md5().startsWith("0".repeat(repeat))) return x
+        if ("$input$x".md5() <= 32 - repeat) return x
         x++
     }
 }
 
 private fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray()))
-    .toString(16)
-    .padStart(32, '0')
+    .toString(16).length
