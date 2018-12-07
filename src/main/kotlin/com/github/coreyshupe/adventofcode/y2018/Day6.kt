@@ -31,10 +31,25 @@ fun findLargestFiniteRegion(input: List<String>) = genInfo(input).let { info ->
 
 fun findCentralRegion(input: List<String>, constraint: Int) = genInfo(input).let { info ->
     val points = info.first
+    var found = false
+    var terminated = false
     (0..info.second).sumBy { x ->
-        (0..info.third).count { y ->
-            points.map { it.distance(x to y) }.sum() < constraint
+        if (terminated) return@sumBy 0
+        var foundRow = false
+        var termRow = false
+        val count = (0..info.third).count { y ->
+            if (termRow) return@count false
+            val d = points.map { it.distance(x to y) }.sum() < constraint
+            if (d) {
+                foundRow = true
+                if (!found) found = true
+            } else if (foundRow) {
+                termRow = true
+            }
+            d
         }
+        if (count == 0 && found) terminated = true
+        count
     }
 }
 
