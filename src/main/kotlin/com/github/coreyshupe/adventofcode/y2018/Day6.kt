@@ -15,8 +15,10 @@ fun findLargestFiniteRegion(input: List<String>) = genInfo(input).let { info ->
     val points = info.first
     val array = Array(points.size) { 0 }
     for (x in 0.until(info.second)) for (y in 0.until(info.third)) {
-        val real = points.map { it.distance(x to y) to it }.let {
-            it.filter { x -> x.first == it.minBy { z -> z.first }!!.first }
+        val pair = x to y
+        val real = points.map { it.distance(pair) to it }.let {
+            val min = it.minBy { z -> z.first }!!.first
+            it.filter { x -> x.first == min }
         }
         if (real.size != 1) continue
         val value = real.first().second.third
@@ -36,16 +38,14 @@ fun findCentralRegion(input: List<String>, constraint: Int) = genInfo(input).let
     }
 }
 
-private fun genInfo(input: List<String>) = spawnPoints(input).let {
-    Triple(
-        it,
-        it.maxBy { x -> x.first }!!.first + 1,
-        it.maxBy { x -> x.second }!!.second + 1
-    )
-}
-
-private fun spawnPoints(input: List<String>) =
-    input.mapIndexed { i, x -> x.split(", ").map { it.toInt() }.let { Triple(it[0], it[1], i) } }
+private fun genInfo(input: List<String>) =
+    input.mapIndexed { i, x -> x.split(", ").map { it.toInt() }.let { Triple(it[0], it[1], i) } }.let {
+        Triple(
+            it,
+            it.maxBy { x -> x.first }!!.first + 1,
+            it.maxBy { x -> x.second }!!.second + 1
+        )
+    }
 
 private fun Triple<Int, Int, Int>.distance(other: Pair<Int, Int>) =
     abs(first - other.first) + abs(second - other.second)
