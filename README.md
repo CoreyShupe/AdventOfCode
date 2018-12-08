@@ -36,3 +36,4 @@ The input will be placed in `src/main/resources/{year}/day{day}_input.txt` (may 
 |Day 5|[Alchemical Reduction](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day5.kt)|
 |Day 6|[Chronal Coordinates](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day6.kt)|
 |Day 7|[The Sum of Its Parts](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day7.kt)|
+|Day 8|[Memory Maneuver](./src/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day8.kt)|

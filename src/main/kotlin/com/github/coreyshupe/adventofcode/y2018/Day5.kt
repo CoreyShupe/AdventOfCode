@@ -1,8 +1,8 @@
 package com.github.coreyshupe.adventofcode.y2018
 
 import com.github.coreyshupe.adventofcode.ResourceType
+import com.github.coreyshupe.adventofcode.Stack
 import com.github.coreyshupe.adventofcode.asResource
-import java.lang.StringBuilder
 
 fun main(args: Array<String>) {
     "/2018/day5_input.txt".asResource(ResourceType.Full) {
@@ -23,44 +23,15 @@ fun countFromBetterReducedPolymer(input: String) =
         }.min()!!
     }
 
-private fun reactPolymersStack(input: String, ignore: Char = ' '): Stack {
+private fun reactPolymersStack(input: String, ignore: Char = ' '): Stack<Char> {
     val ignore2 = ignore.changeCase()
-    val stack = Stack()
+    val stack = Stack<Char>()
     for (x in input) {
         if (x == ignore || x == ignore2) continue
-        else if (!stack.isEmpty && stack.currentNode!!.c == x.changeCase()) stack.pop()
+        else if (!stack.isEmpty && stack.currentNode!!.element == x.changeCase()) stack.pop()
         else stack.push(x)
     }
     return stack
 }
-
-private class Stack {
-    var currentNode: Node? = null
-    var size = 0
-    val isEmpty get() = currentNode == null
-
-    fun pop() {
-        if (isEmpty) throw IllegalStateException("Cannot pop empty stack.")
-        currentNode = currentNode?.node
-        size--
-    }
-
-    fun push(element: Char) {
-        currentNode = Node(element, currentNode)
-        size++
-    }
-
-    override fun toString(): String {
-        val builder = StringBuilder()
-        var x = currentNode
-        while (x != null) {
-            builder.append(x.c)
-            x = x.node
-        }
-        return builder.toString()
-    }
-}
-
-private data class Node(val c: Char, val node: Node?)
 
 private fun Char.changeCase() = if (isUpperCase()) toLowerCase() else toUpperCase()
