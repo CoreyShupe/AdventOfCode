@@ -1,10 +1,10 @@
 package com.github.coreyshupe.adventofcode.y2015
 
 import com.github.coreyshupe.adventofcode.ResourceType
-import com.github.coreyshupe.adventofcode.asResource
+import com.github.coreyshupe.adventofcode.input
 
 fun main(args: Array<String>) {
-    "/2015/day5_input".asResource(ResourceType.Lined) {
+    input(15, 5, ResourceType.Lined) {
         println(countNiceStrings(it)) // part 1 to 2
     }
 }

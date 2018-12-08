@@ -1,12 +1,12 @@
 package com.github.coreyshupe.adventofcode.y2015
 
 import com.github.coreyshupe.adventofcode.ResourceType
-import com.github.coreyshupe.adventofcode.asResource
+import com.github.coreyshupe.adventofcode.input
 import java.math.BigInteger
 import java.security.MessageDigest
 
 fun main(args: Array<String>) {
-    "/2015/day4_input".asResource(ResourceType.Full) {
+    input(15, 4, ResourceType.Full) {
         println(findHashWithLeadingZeroes(it, 5)) // part 1
         println(findHashWithLeadingZeroes(it, 6)) // part 2
     }

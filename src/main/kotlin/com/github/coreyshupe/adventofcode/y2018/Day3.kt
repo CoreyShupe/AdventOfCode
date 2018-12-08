@@ -1,10 +1,10 @@
 package com.github.coreyshupe.adventofcode.y2018
 
 import com.github.coreyshupe.adventofcode.ResourceType
-import com.github.coreyshupe.adventofcode.asResource
+import com.github.coreyshupe.adventofcode.input
 
 fun main(args: Array<String>) {
-    "/2018/day3_input".asResource(ResourceType.Lined) {
+    input(18, 3, ResourceType.Lined) {
         println(findOverlapping(it)) // part 1
         println(findLoneStrand(it)) // part 2
     }
@@ -45,7 +45,10 @@ fun findLoneStrand(input: List<String>): Int {
     return set.first()
 }
 
-private fun runThroughPoints(list: List<Claim>, mapper: (Int, Pair<Int, Int>, MutableMap<Pair<Int, Int>, Int>) -> Boolean):
+private fun runThroughPoints(
+    list: List<Claim>,
+    mapper: (Int, Pair<Int, Int>, MutableMap<Pair<Int, Int>, Int>) -> Boolean
+):
         Map<Pair<Int, Int>, Int> {
     val map = mutableMapOf<Pair<Int, Int>, Int>()
     list.forEach {

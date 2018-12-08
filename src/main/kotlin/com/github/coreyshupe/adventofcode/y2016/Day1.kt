@@ -1,11 +1,11 @@
 package com.github.coreyshupe.adventofcode.y2016
 
 import com.github.coreyshupe.adventofcode.ResourceType
-import com.github.coreyshupe.adventofcode.asResource
+import com.github.coreyshupe.adventofcode.input
 import kotlin.math.abs
 
 fun main(args: Array<String>) {
-    "/2016/day1_input".asResource(ResourceType.CommaSplit) {
+    input(16, 1, ResourceType.CommaSplit) {
         println(findDistance(it)) // part 1
         println(findLocationVisitedTwice(it)) // part 2
     }

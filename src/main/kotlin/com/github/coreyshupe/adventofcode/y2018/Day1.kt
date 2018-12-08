@@ -1,11 +1,11 @@
 package com.github.coreyshupe.adventofcode.y2018
 
 import com.github.coreyshupe.adventofcode.ResourceType
-import com.github.coreyshupe.adventofcode.asResource
 import com.github.coreyshupe.adventofcode.group
+import com.github.coreyshupe.adventofcode.input
 
 fun main(args: Array<String>) {
-    "/2018/day1_input".asResource(ResourceType.Lined) {
+    input(18, 1, ResourceType.Lined) {
         val input = it.map { x -> x.toInt() }
         println(applyFrequencies(input)) // part 1
         println(findRepeatingFrequency(input)) // part 2

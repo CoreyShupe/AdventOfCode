@@ -2,10 +2,10 @@ package com.github.coreyshupe.adventofcode.y2018
 
 import com.github.coreyshupe.adventofcode.ResourceType
 import com.github.coreyshupe.adventofcode.Stack
-import com.github.coreyshupe.adventofcode.asResource
+import com.github.coreyshupe.adventofcode.input
 
 fun main(args: Array<String>) {
-    "/2018/day5_input".asResource(ResourceType.Full) {
+    input(18, 5, ResourceType.Full) {
         println(countFromReducedPolymer(it)) // part 1
         println(countFromBetterReducedPolymer(it)) // part 2
     }

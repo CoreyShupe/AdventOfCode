@@ -1,11 +1,11 @@
 package com.github.coreyshupe.adventofcode.y2015
 
 import com.github.coreyshupe.adventofcode.ResourceType
-import com.github.coreyshupe.adventofcode.asResource
+import com.github.coreyshupe.adventofcode.input
 import kotlin.math.min
 
 fun main(args: Array<String>) {
-    "/2015/day2_input".asResource(ResourceType.Lined) {
+    input(15, 2, ResourceType.Lined) {
         println(findNeededWrappingPaper(it)) // part 1
         println(findNeededRibbon(it)) // part 2
     }

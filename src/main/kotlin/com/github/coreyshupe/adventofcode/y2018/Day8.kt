@@ -1,12 +1,9 @@
 package com.github.coreyshupe.adventofcode.y2018
 
-import com.github.coreyshupe.adventofcode.ResourceType
-import com.github.coreyshupe.adventofcode.Stack
-import com.github.coreyshupe.adventofcode.asResource
-import com.github.coreyshupe.adventofcode.stackFromIterable
+import com.github.coreyshupe.adventofcode.*
 
 fun main(args: Array<String>) {
-    "/2018/day8_input".asResource(ResourceType.SpaceSplit) {
+    input(18, 8, ResourceType.SpaceSplit) {
         val input = it.map { x -> x.toInt() }
         println(countMetaDataStats(input)) // part 1
         println(countRootNodeData(input)) // part 2

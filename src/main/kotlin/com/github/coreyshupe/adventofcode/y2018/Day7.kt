@@ -1,11 +1,11 @@
 package com.github.coreyshupe.adventofcode.y2018
 
 import com.github.coreyshupe.adventofcode.ResourceType
-import com.github.coreyshupe.adventofcode.asResource
+import com.github.coreyshupe.adventofcode.input
 import kotlin.math.max
 
 fun main(args: Array<String>) {
-    "/2018/day7_input".asResource(ResourceType.Lined) {
+    input(18, 7, ResourceType.Lined) {
         println(findInstructionOrder(it))
         println(findInstructionTime(it, 5, 60))
     }
