@@ -7,14 +7,15 @@ import com.github.coreyshupe.adventofcode.stackFromIterable
 
 fun main(args: Array<String>) {
     "/2018/day8_input.txt".asResource(ResourceType.SpaceSplit) {
-        println(countMetaDataStats(it)) // part 1
-        println(countRootNodeData(it)) // part 2
+        val input = it.map { x -> x.toInt() }
+        println(countMetaDataStats(input)) // part 1
+        println(countRootNodeData(input)) // part 2
     }
 }
 
-fun countMetaDataStats(input: List<String>) = genStack(input).let { countSum(it.pop(), it.pop(), it) }
+fun countMetaDataStats(input: List<Int>) = genStack(input).let { countSum(it.pop(), it.pop(), it) }
 
-fun countRootNodeData(input: List<String>) = genStack(input).let { findNodeValue(it.pop(), it.pop(), it) }
+fun countRootNodeData(input: List<Int>) = genStack(input).let { findNodeValue(it.pop(), it.pop(), it) }
 
 private fun findNodeValue(depth: Int, entries: Int, stack: Stack<Int>): Int = when (depth) {
     0 -> (1..entries).sumBy { stack.pop() }
@@ -28,4 +29,4 @@ private fun countSum(depth: Int, entries: Int, stack: Stack<Int>): Int = when (d
     else -> (1..depth).sumBy { countSum(stack.pop(), stack.pop(), stack) } + (1..entries).sumBy { stack.pop() }
 }
 
-private fun genStack(input: List<String>) = stackFromIterable(input.map { it.toInt() })
+private fun genStack(input: List<Int>) = stackFromIterable(input)

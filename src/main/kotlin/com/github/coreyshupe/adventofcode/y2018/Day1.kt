@@ -6,15 +6,16 @@ import com.github.coreyshupe.adventofcode.group
 
 fun main(args: Array<String>) {
     "/2018/day1_input.txt".asResource(ResourceType.Lined) {
-        println(applyFrequencies(it)) // part 1
-        println(findRepeatingFrequency(it)) // part 2
+        val input = it.map { x -> x.toInt() }
+        println(applyFrequencies(input)) // part 1
+        println(findRepeatingFrequency(input)) // part 2
     }
 }
 
-fun applyFrequencies(input: List<String>) = input.map { it.toInt() }.sum()
+fun applyFrequencies(input: List<Int>) = input.sum()
 
-fun findRepeatingFrequency(input: List<String>): Int {
-    val parsedIter = input.map { it.toInt() }.iterator()
+fun findRepeatingFrequency(input: List<Int>): Int {
+    val parsedIter = input.iterator()
 
     val sums = generateSequence(0) {
         it + parsedIter.next()
