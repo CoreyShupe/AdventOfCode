@@ -4,7 +4,7 @@ import com.github.coreyshupe.adventofcode.ResourceType
 import com.github.coreyshupe.adventofcode.asResource
 
 fun main(args: Array<String>) {
-    "/2016/day2_input.txt".asResource(ResourceType.Lined) {
+    "/2016/day2_input".asResource(ResourceType.Lined) {
         println(findKeyCode(it, p1Arr, p1Start)) // part 1
         println(findKeyCode(it, p2Arr, p2Start)) // part 2
     }

@@ -4,7 +4,7 @@ import com.github.coreyshupe.adventofcode.ResourceType
 import com.github.coreyshupe.adventofcode.asResource
 
 fun main(args: Array<String>) {
-    "/2015/day1_input.txt".asResource(ResourceType.Full) {
+    "/2015/day1_input".asResource(ResourceType.Full) {
         println(findFloor(it)) // part 1
         println(findBasementEntrance(it)) // part 2
     }

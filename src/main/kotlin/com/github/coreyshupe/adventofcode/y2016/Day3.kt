@@ -4,7 +4,7 @@ import com.github.coreyshupe.adventofcode.ResourceType
 import com.github.coreyshupe.adventofcode.asResource
 
 fun main(args: Array<String>) {
-    "/2016/day3_input.txt".asResource(ResourceType.Lined) {
+    "/2016/day3_input".asResource(ResourceType.Lined) {
         println(findAllPossibleTriangles(it)) // part 1
         println(findAllPossibleRowedTriangles(it)) // part 2
     }

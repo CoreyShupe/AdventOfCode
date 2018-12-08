@@ -5,7 +5,7 @@ import com.github.coreyshupe.adventofcode.asResource
 import kotlin.math.abs
 
 fun main(args: Array<String>) {
-    "/2016/day1_input.txt".asResource(ResourceType.CommaSplit) {
+    "/2016/day1_input".asResource(ResourceType.CommaSplit) {
         println(findDistance(it)) // part 1
         println(findLocationVisitedTwice(it)) // part 2
     }

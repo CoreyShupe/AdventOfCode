@@ -5,7 +5,7 @@ import com.github.coreyshupe.adventofcode.asResource
 import kotlin.math.max
 
 fun main(args: Array<String>) {
-    "/2018/day7_input.txt".asResource(ResourceType.Lined) {
+    "/2018/day7_input".asResource(ResourceType.Lined) {
         println(findInstructionOrder(it))
         println(findInstructionTime(it, 5, 60))
     }

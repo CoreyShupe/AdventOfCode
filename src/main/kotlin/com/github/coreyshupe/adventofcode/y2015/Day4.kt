@@ -6,7 +6,7 @@ import java.math.BigInteger
 import java.security.MessageDigest
 
 fun main(args: Array<String>) {
-    "/2015/day4_input.txt".asResource(ResourceType.Full) {
+    "/2015/day4_input".asResource(ResourceType.Full) {
         println(findHashWithLeadingZeroes(it, 5)) // part 1
         println(findHashWithLeadingZeroes(it, 6)) // part 2
     }

@@ -5,7 +5,7 @@ import com.github.coreyshupe.adventofcode.asResource
 import kotlin.math.min
 
 fun main(args: Array<String>) {
-    "/2015/day2_input.txt".asResource(ResourceType.Lined) {
+    "/2015/day2_input".asResource(ResourceType.Lined) {
         println(findNeededWrappingPaper(it)) // part 1
         println(findNeededRibbon(it)) // part 2
     }

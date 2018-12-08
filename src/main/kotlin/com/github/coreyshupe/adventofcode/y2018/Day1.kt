@@ -5,7 +5,7 @@ import com.github.coreyshupe.adventofcode.asResource
 import com.github.coreyshupe.adventofcode.group
 
 fun main(args: Array<String>) {
-    "/2018/day1_input.txt".asResource(ResourceType.Lined) {
+    "/2018/day1_input".asResource(ResourceType.Lined) {
         val input = it.map { x -> x.toInt() }
         println(applyFrequencies(input)) // part 1
         println(findRepeatingFrequency(input)) // part 2

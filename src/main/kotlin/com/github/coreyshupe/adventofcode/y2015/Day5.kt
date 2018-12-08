@@ -4,7 +4,7 @@ import com.github.coreyshupe.adventofcode.ResourceType
 import com.github.coreyshupe.adventofcode.asResource
 
 fun main(args: Array<String>) {
-    "/2015/day5_input.txt".asResource(ResourceType.Lined) {
+    "/2015/day5_input".asResource(ResourceType.Lined) {
         println(countNiceStrings(it)) // part 1 to 2
     }
 }

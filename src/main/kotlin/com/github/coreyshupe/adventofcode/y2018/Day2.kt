@@ -5,7 +5,7 @@ import com.github.coreyshupe.adventofcode.asResource
 import com.github.coreyshupe.adventofcode.findRepeated
 
 fun main(args: Array<String>) {
-    "/2018/day2_input.txt".asResource(ResourceType.Lined) {
+    "/2018/day2_input".asResource(ResourceType.Lined) {
         println(countTwosAndThrees(it)) // part 1
         println(findMostCommonString(it)) // part 2 v1
         println(findMostCommonStringRemoval(it)) // part 2 v2

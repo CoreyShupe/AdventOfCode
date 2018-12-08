@@ -5,7 +5,7 @@ import com.github.coreyshupe.adventofcode.Stack
 import com.github.coreyshupe.adventofcode.asResource
 
 fun main(args: Array<String>) {
-    "/2018/day5_input.txt".asResource(ResourceType.Full) {
+    "/2018/day5_input".asResource(ResourceType.Full) {
         println(countFromReducedPolymer(it)) // part 1
         println(countFromBetterReducedPolymer(it)) // part 2
     }

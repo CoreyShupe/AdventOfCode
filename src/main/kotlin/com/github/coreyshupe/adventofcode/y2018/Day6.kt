@@ -5,7 +5,7 @@ import com.github.coreyshupe.adventofcode.asResource
 import kotlin.math.abs
 
 fun main(args: Array<String>) {
-    "/2018/day6_input.txt".asResource(ResourceType.Lined) {
+    "/2018/day6_input".asResource(ResourceType.Lined) {
         println(findLargestFiniteRegion(it)) // part 1
         println(findCentralRegion(it, 10000)) // part 2
     }

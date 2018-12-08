@@ -6,7 +6,7 @@ import com.github.coreyshupe.adventofcode.asResource
 import com.github.coreyshupe.adventofcode.stackFromIterable
 
 fun main(args: Array<String>) {
-    "/2018/day8_input.txt".asResource(ResourceType.SpaceSplit) {
+    "/2018/day8_input".asResource(ResourceType.SpaceSplit) {
         val input = it.map { x -> x.toInt() }
         println(countMetaDataStats(input)) // part 1
         println(countRootNodeData(input)) // part 2
