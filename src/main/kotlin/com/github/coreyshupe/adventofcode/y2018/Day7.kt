@@ -6,8 +6,8 @@ import kotlin.math.max
 
 fun main(args: Array<String>) {
     input(18, 7, ResourceType.Lined) {
-        println(findInstructionOrder(it))
-        println(findInstructionTime(it, 5, 60))
+        println(findInstructionOrder(it)) // part 1
+        println(findInstructionTime(it, 5, 60)) // part 2
     }
 }
 
