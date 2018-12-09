@@ -30,6 +30,7 @@ fun playMarbles(input: Pair<Int, Int>): Long {
     return map.values.max()!!
 }
 
+// Thanks Plastic <3
 private class RotatingNodeList {
     var previous = this
     var next = this
