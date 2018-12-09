@@ -9,9 +9,9 @@ Each day's solution will have 4 things.
 * A place in the README to link to the solution
 
 Each solution will also have a main function so the class can be run as is, printing the solution from the input.<br/>
-Each solution will be placed in `src/main/kotlin/com/github/coreyshupe/adventofcode/y{year}/Day{day}.kt`<br/>
+Each solution will be placed in `jvm/main/kotlin/com/github/coreyshupe/adventofcode/y{year}/Day{day}.kt`<br/>
 The test will be in the corresponding location to the source.<br/>
-The input will be placed in `src/main/resources/{year}/day{day}_input`
+The input will be placed in `jvm/main/resources/{year}/day{day}_input`
 ## [2015 Solutions](https://adventofcode.com/2015)
 |Day|Title|
 |:---|---:|
@@ -37,3 +37,4 @@ The input will be placed in `src/main/resources/{year}/day{day}_input`
 |Day 6|[Chronal Coordinates](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day6.kt)|
 |Day 7|[The Sum of Its Parts](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day7.kt)|
 |Day 8|[Memory Maneuver](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day8.kt)|
+|Day 9|[Marble Mania](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day9.kt)|
