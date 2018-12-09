@@ -22,10 +22,7 @@ fun playMarbles(input: Pair<Int, Int>): Long {
         highestMarble += 23
         if (highestMarble > input.second) break
         val turn = (highestMarble - 1) % input.first
-        val removing = pointer.previous
-        removing.previous.next = pointer
-        pointer.previous = removing.previous
-        map[turn] = map.getOrDefault(turn, 0) + highestMarble + removing.value
+        map[turn] = map.getOrDefault(turn, 0) + highestMarble + pointer.previous.kill()
     }
     return map.values.max()!!
 }
@@ -45,5 +42,11 @@ private class RotatingNodeList {
         next = new
         new.previous = this
         return new
+    }
+
+    fun kill(): Int {
+        next.previous = previous
+        previous.next = next
+        return value
     }
 }
