@@ -1,5 +1,6 @@
 package com.github.coreyshupe.adventofcode.y2018
 
+import com.github.coreyshupe.adventofcode.PointerNodeList
 import com.github.coreyshupe.adventofcode.ResourceType
 import com.github.coreyshupe.adventofcode.input
 
@@ -13,40 +14,16 @@ fun main(args: Array<String>) {
 }
 
 fun playMarbles(input: Pair<Int, Int>): Long {
-    var pointer = RotatingNodeList()
+    var pointer = PointerNodeList(0)
     var highestMarble = 0
     val map = mutableMapOf<Int, Long>()
     while (true) {
-        (1..22).forEach { pointer = pointer.next.insert(highestMarble + it) }
-        for (x in 1..6) pointer = pointer.previous
+        (1..22).forEach { pointer = pointer.forward.insert(highestMarble + it) }
+        for (x in 1..6) pointer = pointer.back
         highestMarble += 23
         if (highestMarble > input.second) break
         val turn = (highestMarble - 1) % input.first
-        map[turn] = map.getOrDefault(turn, 0) + highestMarble + pointer.previous.kill()
+        map[turn] = map.getOrDefault(turn, 0) + highestMarble + pointer.back.kill()
     }
     return map.values.max()!!
-}
-
-// Thanks Plastic <3
-private class RotatingNodeList {
-    var previous = this
-    var next = this
-    private var etc = 0
-    val value get() = etc
-
-    fun insert(value: Int): RotatingNodeList {
-        val new = RotatingNodeList()
-        new.etc = value
-        new.next = next
-        next.previous = new
-        next = new
-        new.previous = this
-        return new
-    }
-
-    fun kill(): Int {
-        next.previous = previous
-        previous.next = next
-        return value
-    }
 }
