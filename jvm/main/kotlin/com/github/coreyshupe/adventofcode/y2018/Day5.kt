@@ -28,7 +28,7 @@ private fun reactPolymersStack(input: String, ignore: Char = ' '): Stack<Char> {
     val stack = Stack<Char>()
     for (x in input) {
         if (x == ignore || x == ignore2) continue
-        else if (!stack.isEmpty && stack.currentNode!!.element == x.changeCase()) stack.pop()
+        else if (!stack.isEmpty && stack.peek()!! == x.changeCase()) stack.pop()
         else stack.push(x)
     }
     return stack

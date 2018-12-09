@@ -1,21 +1,24 @@
 package com.github.coreyshupe.adventofcode
 
 class Stack<T> {
-    var currentNode: Node<T>? = null
-    var size = 0
+    private var currentNode: Node<T>? = null
+    private var depth = 0
+    val size get() = depth
     val isEmpty get() = currentNode == null
 
     fun pop(): T {
         if (isEmpty) throw IllegalStateException("Cannot pop empty stack.")
         val last = currentNode!!
         currentNode = currentNode?.node
-        size--
+        depth--
         return last.element
     }
 
+    fun peek(): T? = currentNode?.element
+
     fun push(element: T) {
         currentNode = Node(element, currentNode)
-        size++
+        depth++
     }
 
     override fun toString() = buildString {
