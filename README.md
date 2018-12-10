@@ -38,3 +38,4 @@ The input will be placed in `jvm/main/resources/{year}/day{day}_input`
 |Day 7|[The Sum of Its Parts](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day7.kt)|
 |Day 8|[Memory Maneuver](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day8.kt)|
 |Day 9|[Marble Mania](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day9.kt)|
+|Day 10|[The Stars Align](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day10.kt)|
