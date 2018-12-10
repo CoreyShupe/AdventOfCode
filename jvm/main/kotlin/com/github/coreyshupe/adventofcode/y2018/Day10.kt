@@ -21,8 +21,8 @@ fun findMessage(input: List<String>): Pair<String, Int> {
     var time = 0
     var last: Triple<Set<Pair<Int, Int>>, Int, Pair<Int, Int>>? = null
     while (true) {
-        val fixedPos = positions.map { it getCurrentPoint time }.toSet()
         time++
+        val fixedPos = positions.map { it getCurrentPoint time }.toSet()
         val maxY = fixedPos.maxBy { it.second }!!.second
         val minY = fixedPos.minBy { it.second }!!.second
         if (maxY - minY > last?.second ?: Int.MAX_VALUE) {
@@ -38,7 +38,7 @@ fun findMessage(input: List<String>): Pair<String, Int> {
                     append('\n')
                 }
             }
-            return Pair(toString, time - 2)
+            return Pair(toString, time - 1)
         }
         last = Triple(fixedPos, maxY - minY, Pair(minY, maxY))
     }
