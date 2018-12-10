@@ -26,20 +26,21 @@ fun findMessage(input: List<String>): Pair<String, Int> {
         val maxY = fixedPos.maxBy { it.second }!!.second
         val minY = fixedPos.minBy { it.second }!!.second
         if (maxY - minY > last?.second ?: Int.MAX_VALUE) {
-            val maxX = last!!.first.maxBy { it.first }!!.first
-            val minX = last.first.minBy { it.first }!!.first
-            return Pair(normalize(last.first, minX to maxX, last.third.first to last.third.second), time - 2)
+            val setupPos = last!!.first
+            val maxX = setupPos.maxBy { it.first }!!.first
+            val minX = setupPos.minBy { it.first }!!.first
+            val yBounds = last.third
+            val toString = buildString {
+                for (y in yBounds.first..yBounds.second) {
+                    for (x in minX..maxX) {
+                        append((if (setupPos.contains(x to y)) '#' else '.'))
+                    }
+                    append('\n')
+                }
+            }
+            return Pair(toString, time - 2)
         }
         last = Triple(fixedPos, maxY - minY, Pair(minY, maxY))
-    }
-}
-
-private fun normalize(positions: Set<Pair<Int, Int>>, xBounds: Pair<Int, Int>, yBounds: Pair<Int, Int>) = buildString {
-    for (y in yBounds.first..yBounds.second) {
-        for (x in xBounds.first..xBounds.second) {
-            append((if (positions.contains(x to y)) '#' else '.'))
-        }
-        append('\n')
     }
 }
 
