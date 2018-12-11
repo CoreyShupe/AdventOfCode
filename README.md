@@ -29,7 +29,7 @@ The input will be placed in `jvm/main/resources/{year}/day{day}_input`
 ## [2018 Solutions](https://adventofcode.com/2018)
 |Day|Title|
 |:---|---:|
-|Day 1|[Chronal Calibration](project_mds/2018/Chronal Calibration-1.md)|
+|Day 1|[Chronal Calibration](project_mds/2018/Chronal%20Calibration-1.md)|
 |Day 2|[Inventory Management System](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day2.kt)|
 |Day 3|[No Matter How You Slice It](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day3.kt)|
 |Day 4|[Repose Record](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day4.kt)|
