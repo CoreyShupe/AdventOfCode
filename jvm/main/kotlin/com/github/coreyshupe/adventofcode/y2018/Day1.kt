@@ -6,7 +6,7 @@ import com.github.coreyshupe.adventofcode.input
 
 fun main(args: Array<String>) {
     input(18, 1, ResourceType.Lined) {
-        val input = it.map { x -> x.toInt() }
+        val input = it.map(String::toInt)
         println(applyFrequencies(input)) // part 1
         println(findRepeatingFrequency(input)) // part 2
     }
