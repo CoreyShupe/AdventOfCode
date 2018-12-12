@@ -30,3 +30,4 @@ Currently using: Kotlin<br/>
 |Day 9|[Marble Mania](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day9.kt)|
 |Day 10|[The Stars Align](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day10.kt)|
 |Day 11|[Chronal Charge](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day11.kt)|
+|Day 12|[Subterranean Sustainability](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day12.kt)|

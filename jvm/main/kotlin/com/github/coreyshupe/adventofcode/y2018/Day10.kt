@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
     input(18, 10, ResourceType.Lined) {
         val answer = findMessage(it)
         println("In ${answer.second}s we got the message:") // part 1
-        println(answer.first) // part 2
+        println(answer.first/*.replace used for pretty purposes*/.replace('.', ' ')) // part 2
     }
 }
 
