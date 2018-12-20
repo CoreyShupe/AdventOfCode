@@ -7,14 +7,14 @@ import org.junit.Assert.*
 class Day20KtTest {
 
     @Test
-    fun determineBestRouteTest() {
-        assertEquals(3, determineBestRoute(parseToStack("^WNE\$")))
-        assertEquals(10, determineBestRoute(parseToStack("^ENWWW(NEEE|SSE(EE|N))\$")))
-        assertEquals(18, determineBestRoute(parseToStack("^ENNWSWW(NEWS|)SSSEEN(WNSE|)EE(SWEN|)NNN\$")))
-        assertEquals(23, determineBestRoute(parseToStack("^ESSWWN(E|NNENN(EESS(WNSE|)SSS|WWWSSSSE(SW|NNNE)))\$")))
-        assertEquals(
-            31,
-            determineBestRoute(parseToStack("^WSSEESWWWNW(S|NENNEEEENN(ESSSSW(NWSW|SSEN)|WSWWN(E|WWS(E|SS))))\$"))
-        )
+    fun determineRouteDataTest() {
+        fun assert(expected: Int, input: String) =
+            assertEquals(expected, determineRouteData(input.byteInputStream()).first)
+        assert(3, "WNE")
+        assert(10, "ENWWW(NEEE|SSE(EE|N))")
+        assert(18, "ENNWSWW(NEWS|)SSSEEN(WNSE|)EE(SWEN|)NNN")
+        assert(23, "ESSWWN(E|NNENN(EESS(WNSE|)SSS|WWWSSSSE(SW|NNNE)))")
+        assert(31, "WSSEESWWWNW(S|NENNEEEENN(ESSSSW(NWSW|SSEN)|WSWWN(E|WWS(E|SS))))")
+
     }
 }

@@ -1,29 +1,16 @@
 package com.github.coreyshupe.adventofcode.y2018
 
 import com.github.coreyshupe.adventofcode.Pointer
-import com.github.coreyshupe.adventofcode.ResourceType
-import com.github.coreyshupe.adventofcode.input
-import java.util.*
+import java.io.InputStream
 
-fun main(args: Array<String>) {
-    input(18, 20, ResourceType.Full) {
-        determineBestRoute(parseToStack(it)).let(::println)
-        determine1000Past(parseToStack(it)).let(::println)
-    }
+fun main(args: Array<String>) =
+    with(String::class.java.getResourceAsStream("/2018/day20_input")) { determineRouteData(this).let(::println) }
+
+fun determineRouteData(stream: InputStream): Pair<Int, Int> {
+    val map = mutableMapOf((0 to 0) to 0)
+    read(stream, mutableSetOf(Branch(0 to 0, 0)), map)
+    return map.maxBy { it.value }!!.value /*part 1*/ to map.count { it.value >= 1000 } /*part 2*/
 }
-
-fun parseToStack(input: String): Stack<Char> {
-    val stack = Stack<Char>()
-    input.drop(1).dropLast(1).forEach { c -> stack.push(c) }
-    stack.reverse()
-    return stack
-}
-
-fun determineBestRoute(stack: Stack<Char>) =
-    mutableMapOf((0 to 0) to 0).apply { read(stack, mutableSetOf(Branch(0 to 0, 0)), this) }.maxBy { it.value }!!.value
-
-fun determine1000Past(stack: Stack<Char>) =
-    mutableMapOf((0 to 0) to 0).apply { read(stack, mutableSetOf(Branch(0 to 0, 0)), this) }.count { it.value >= 1000 }
 
 private fun Set<Branch>.mutateAll(with: Pair<Int, Int>, pathMap: MutableMap<Pair<Int, Int>, Int>) {
     forEach {
@@ -36,13 +23,15 @@ private fun Set<Branch>.mutateAll(with: Pair<Int, Int>, pathMap: MutableMap<Pair
     }
 }
 
-fun read(path: Stack<Char>, branches: MutableSet<Branch>, pathMap: MutableMap<Pair<Int, Int>, Int>) {
+fun read(stream: InputStream, branches: MutableSet<Branch>, pathMap: MutableMap<Pair<Int, Int>, Int>) {
     val currentBranch = mutableSetOf<Branch>()
     val fixedBranches = mutableSetOf<Branch>()
     currentBranch.addAll(branches.map(Branch::clone))
-    while (!path.isEmpty()) {
-        val c = path.pop()
-        val terminate = when (c) {
+    while (true) {
+        val c = stream.read()
+        if (c == -1) break
+        val terminate = when (c.toChar()) {
+            '^', '$' -> false // ignore wrappings
             'E' -> {
                 currentBranch.mutateAll(1 to 0, pathMap)
                 false
@@ -67,7 +56,7 @@ fun read(path: Stack<Char>, branches: MutableSet<Branch>, pathMap: MutableMap<Pa
             }
             ')' -> true
             '(' -> {
-                read(path, currentBranch, pathMap)
+                read(stream, currentBranch, pathMap)
                 false
             }
             else -> true
