@@ -8,6 +8,9 @@ fun main(args: Array<String>) {
     input(18, 17, ResourceType.Lined) {
         countWaterTiles(loadPointArray(it)).let(::println) // part 1, part 2
     }
+    input(18, 20, ResourceType.Lined) {
+        countWaterTiles(loadPointArray(it)).let(::println)
+    }
 }
 
 fun countWaterTiles(input: Set<Pair<Int, Int>>): Pair<Int, Int> {
