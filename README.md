@@ -1,6 +1,8 @@
 # AdventOfCode ![Travis Build](https://travis-ci.org/CoreyShupe/AdventOfCode.svg?branch=master)
 [Advent of Code](https://adventofcode.com) solutions in a variety of languages.<br/>
 All solutions starting from 2015 are on the TODO list.<br/>
+TODO: add classes for solutions so namespace is uncluttered. Use some abstraction in this.<br />
+Possible codebase style re-write to look better / have better namespace and testing. <br />
 Currently using: Kotlin<br/>
 ## [2015 Solutions](https://adventofcode.com/2015)
 |Day|Title|
