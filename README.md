@@ -40,3 +40,4 @@ Currently using: Kotlin<br/>
 |Day 17|[Reservoir Research](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day17.kt)|
 |Day 18|[Settlers of The North Pole](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day18.kt)|
 |Day 19|[Go With The Flow](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day19.kt)|
+|Day 20|[A Regular Map](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day20.kt)|
