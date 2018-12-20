@@ -1,6 +1,8 @@
 package com.github.coreyshupe.adventofcode
 
-fun <E> List<E>.getRealIndex(size: Int, index: Int) = index % size
+import kotlin.math.abs
+
+fun getRealIndex(collection: Collection<Any>, index: Int) = abs(index % collection.size)
 
 fun <E, K, V> Collection<E>.toMap(eToK: (E) -> K, eToV: (E) -> V) =
     this.map { eToK.invoke(it) to eToV.invoke(it) }.toMap()

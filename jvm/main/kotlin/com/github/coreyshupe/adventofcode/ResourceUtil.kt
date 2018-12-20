@@ -7,11 +7,11 @@ sealed class ResourceType<T> {
     object SpaceSplit : ResourceType<List<String>>()
 }
 
-fun <T> input(year: Int, day: Int, type: ResourceType<T>, applier: (T) -> Unit) =
+fun <T> input(year: Int, day: Int, type: ResourceType<T>, applier: (T) -> Any) =
     "/20$year/day${day}_input".asResource(type, applier)
 
 @Suppress("UNCHECKED_CAST")
-fun <T> String.asResource(type: ResourceType<T>, applier: (T) -> Unit) {
+fun <T> String.asResource(type: ResourceType<T>, applier: (T) -> Any) {
     val text = this::class.java.getResource(this).readText().replace("\r", "")
     when (type) {
         ResourceType.Full -> applier(text as T)

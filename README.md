@@ -31,3 +31,10 @@ Currently using: Kotlin<br/>
 |Day 10|[The Stars Align](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day10.kt)|
 |Day 11|[Chronal Charge](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day11.kt)|
 |Day 12|[Subterranean Sustainability](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day12.kt)|
+|Day 13|[Mine Cart Madness](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day13.kt)|
+|Day 14|[Chocolate Charts](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day14.kt)|
+|Day 15|[Beverage Bandits](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day15.kt)|
+|Day 16|[Chronal Classification](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day16.kt)|
+|Day 17|[Reservoir Research](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day17.kt)|
+|Day 18|[Settlers of The North Pole](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day18.kt)|
+|Day 19|[Go With The Flow](jvm/main/kotlin/com/github/coreyshupe/adventofcode/y2018/Day19.kt)|

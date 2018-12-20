@@ -1,5 +1,6 @@
 package com.github.coreyshupe.adventofcode.y2016
 
+import com.github.coreyshupe.adventofcode.Direction
 import com.github.coreyshupe.adventofcode.ResourceType
 import com.github.coreyshupe.adventofcode.input
 import kotlin.math.abs
@@ -37,26 +38,4 @@ fun findLocationVisitedTwice(input: List<String>): Int {
         }
     }
     throw IllegalArgumentException("Invalid input.")
-}
-
-private enum class Direction {
-    EAST {
-        override fun apply(pointer: Pair<Int, Int>, len: Int) = Pair(pointer.first + len, pointer.second)
-        override fun move(left: Boolean) = if (left) NORTH else SOUTH
-    },
-    WEST {
-        override fun apply(pointer: Pair<Int, Int>, len: Int) = Pair(pointer.first - len, pointer.second)
-        override fun move(left: Boolean) = if (left) SOUTH else NORTH
-    },
-    NORTH {
-        override fun apply(pointer: Pair<Int, Int>, len: Int) = Pair(pointer.first, pointer.second + len)
-        override fun move(left: Boolean) = if (left) WEST else EAST
-    },
-    SOUTH {
-        override fun apply(pointer: Pair<Int, Int>, len: Int) = Pair(pointer.first, pointer.second - len)
-        override fun move(left: Boolean) = if (left) EAST else WEST
-    };
-
-    abstract fun apply(pointer: Pair<Int, Int>, len: Int): Pair<Int, Int>
-    abstract fun move(left: Boolean): Direction
 }
