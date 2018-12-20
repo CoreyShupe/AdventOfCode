@@ -11,8 +11,8 @@ fun <T> input(year: Int, day: Int, type: ResourceType<T>, applier: (T) -> Any) =
     "/20$year/day${day}_input".asResource(type, applier)
 
 @Suppress("UNCHECKED_CAST")
-fun <T> String.asResource(type: ResourceType<T>, applier: (T) -> Any) {
-    val text = this::class.java.getResource(this).readText().replace("\r", "")
+fun <T> String.asResource(type: ResourceType<T>, applier: (T) -> Any, clazz: Class<*> = this::class.java) {
+    val text = clazz.getResource(this).readText().replace("\r", "")
     when (type) {
         ResourceType.Full -> applier(text as T)
         ResourceType.Lined -> applier(text.split('\n') as T)
