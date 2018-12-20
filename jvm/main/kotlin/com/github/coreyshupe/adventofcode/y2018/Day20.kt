@@ -30,38 +30,38 @@ fun read(stream: InputStream, branches: MutableSet<Branch>, pathMap: MutableMap<
     while (true) {
         val c = stream.read()
         if (c == -1) break
-        val terminate = when (c.toChar()) {
-            '^', '$' -> false // ignore wrappings
-            'E' -> {
-                currentBranch.mutateAll(1 to 0, pathMap)
-                false
+        if (when (c.toChar()) {
+                '^', '$' -> false // ignore wrappings
+                'E' -> {
+                    currentBranch.mutateAll(1 to 0, pathMap)
+                    false
+                }
+                'N' -> {
+                    currentBranch.mutateAll(0 to 1, pathMap)
+                    false
+                }
+                'S' -> {
+                    currentBranch.mutateAll(0 to -1, pathMap)
+                    false
+                }
+                'W' -> {
+                    currentBranch.mutateAll(-1 to 0, pathMap)
+                    false
+                }
+                '|' -> {
+                    fixedBranches.addAll(currentBranch)
+                    currentBranch.clear()
+                    currentBranch.addAll(branches.map(Branch::clone))
+                    false
+                }
+                ')' -> true
+                '(' -> {
+                    read(stream, currentBranch, pathMap)
+                    false
+                }
+                else -> true
             }
-            'N' -> {
-                currentBranch.mutateAll(0 to 1, pathMap)
-                false
-            }
-            'S' -> {
-                currentBranch.mutateAll(0 to -1, pathMap)
-                false
-            }
-            'W' -> {
-                currentBranch.mutateAll(-1 to 0, pathMap)
-                false
-            }
-            '|' -> {
-                fixedBranches.addAll(currentBranch)
-                currentBranch.clear()
-                currentBranch.addAll(branches.map(Branch::clone))
-                false
-            }
-            ')' -> true
-            '(' -> {
-                read(stream, currentBranch, pathMap)
-                false
-            }
-            else -> true
-        }
-        if (terminate) break
+        ) break
     }
     branches.clear()
     branches.addAll(fixedBranches)
