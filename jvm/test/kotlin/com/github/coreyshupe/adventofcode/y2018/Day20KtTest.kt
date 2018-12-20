@@ -8,8 +8,9 @@ class Day20KtTest {
 
     @Test
     fun determineRouteDataTest() {
-        fun assert(expected: Int, input: String) =
-            assertEquals(expected, determineRouteData(input.byteInputStream()).first)
+        fun assert(expected: Int, input: String) = input.byteInputStream().use {
+            assertEquals(expected, determineRouteData(it).first)
+        }
         assert(3, "WNE")
         assert(10, "ENWWW(NEEE|SSE(EE|N))")
         assert(18, "ENNWSWW(NEWS|)SSSEEN(WNSE|)EE(SWEN|)NNN")

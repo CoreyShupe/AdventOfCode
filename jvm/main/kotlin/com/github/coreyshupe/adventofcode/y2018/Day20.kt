@@ -4,7 +4,7 @@ import com.github.coreyshupe.adventofcode.Pointer
 import java.io.InputStream
 
 fun main(args: Array<String>) =
-    with(String::class.java.getResourceAsStream("/2018/day20_input")) { determineRouteData(this).let(::println) }
+    String::class.java.getResourceAsStream("/2018/day20_input").use { determineRouteData(it).let(::println) }
 
 fun determineRouteData(stream: InputStream): Pair<Int, Int> {
     val map = mutableMapOf((0 to 0) to 0)
