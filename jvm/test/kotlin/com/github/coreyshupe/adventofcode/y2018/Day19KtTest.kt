@@ -2,14 +2,12 @@ package com.github.coreyshupe.adventofcode.y2018
 
 import com.github.coreyshupe.adventofcode.ResourceType
 import com.github.coreyshupe.adventofcode.asResource
-import com.github.coreyshupe.adventofcode.input
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import kotlin.test.Ignore
 
 class Day19KtTest {
 
-    @Test
+    @Ignore
     fun findInstructionHaltTest() {
         // example badly represents this problem
         "/2018/day19_input".asResource(ResourceType.Lined, {
